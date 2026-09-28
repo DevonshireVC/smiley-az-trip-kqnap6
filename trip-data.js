@@ -18,7 +18,9 @@ window.COMMENTS_CONFIG = {
 };
 
 window.TRIP = {
-  title: "Smiley Family Arizona Christmas",
+  title: "The Smiley Family Arizona Christmas",
+  preparedBy: "Travel Agent",
+  heroImg: { small: "img/hero-960.jpg", large: "img/hero-1920.jpg", alt: "Saguaro cacti at sunset in Saguaro National Park East, Tucson" },
   subtitle: "Tucson + Scottsdale · Dec 24–29, 2026",
   checked: "Prices checked Sep 27, 2026 — they will change. Nothing is booked yet.",
   family: ["Aaron", "Kristin"],          // add the girls' names here to show them as one-tap name buttons
@@ -44,7 +46,7 @@ window.TRIP = {
 
   days: [
     {
-      id: "day-1", date: "Thu Dec 24", title: "Christmas Eve · Fly to Phoenix, drive to Tucson",
+      id: "day-1", icon: "✈️", date: "Thu Dec 24", title: "Christmas Eve · Fly to Phoenix, drive to Tucson",
       status: "pending",
       summary: "Early flight, then an easy afternoon. Some places close early on Christmas Eve.",
       items: [
@@ -56,7 +58,7 @@ window.TRIP = {
       closed: "Christmas Eve short hours: Kartchner Caverns 8–2, Pima Air & Space 9–3. Luminarias is NOT running Dec 24."
     },
     {
-      id: "day-2", date: "Fri Dec 25", title: "Christmas Day · Desert Museum, Saguaro West, sunset",
+      id: "day-2", img: "img/day-saguaro-sunset.jpg", imgAlt: "Saguaro silhouette at sunset", date: "Fri Dec 25", title: "Christmas Day · Desert Museum, Saguaro West, sunset",
       summary: "Most places are closed today, but the Desert Museum is open and Saguaro NP is open (visitor centers closed).",
       items: [
         { time: "Morning", title: "Arizona-Sonora Desert Museum", text: "Open 365 days a year (a 2023 blog confirms Christmas; sit-down dining was closed). Hours Oct–May 8:30–5. Allow 2+ hours. $29.95 ages 13–64, $24.95 ages 3–12 → <b>$174.70</b>.", map: "Arizona-Sonora Desert Museum, Tucson AZ", src: "https://www.desertmuseum.org/visit/" },
@@ -66,7 +68,7 @@ window.TRIP = {
       closed: "Closed today: Saguaro visitor centers, Sabino Canyon tram, Kartchner Caverns, Pima Air & Space, Chiricahua visitor center, Casa Grande Ruins, Taliesin West."
     },
     {
-      id: "day-3", date: "Sat Dec 26", title: "Rest day",
+      id: "day-3", icon: "🏊", date: "Sat Dec 26", title: "Rest day",
       summary: "Sleep in, pool, games. Optional outing if people want one. Vote in the comments.",
       items: [
         { time: "All day", title: "Pool / spa / downtime", text: "Nights are around 40°F, so a heated pool or spa matters." },
@@ -76,7 +78,7 @@ window.TRIP = {
       ]
     },
     {
-      id: "day-4", date: "Sun Dec 27", title: "Saguaro East + Sabino Canyon",
+      id: "day-4", img: "img/day-sabino.jpg", imgAlt: "Sabino Canyon", date: "Sun Dec 27", title: "Saguaro East + Sabino Canyon",
       summary: "Both are on the east side of Tucson.",
       items: [
         { time: "Morning", title: "Sabino Canyon Crawler (tram)", text: "Hourly 9 am–4 pm. $15 ages 13+, $8 ages 3–12 → <b>$83</b>, plus $8 parking per car. <b>Book online ahead; it sells out.</b>", status: "pending", map: "Sabino Canyon Recreation Area, Tucson AZ", src: "https://sabinocanyoncrawler.com/faqs/" },
@@ -86,7 +88,7 @@ window.TRIP = {
       ]
     },
     {
-      id: "day-5", date: "Mon Dec 28", title: "Drive to Scottsdale · Casa Grande Ruins · Luminarias",
+      id: "day-5", img: "img/day-casa-grande.jpg", imgAlt: "Casa Grande Ruins", date: "Mon Dec 28", title: "Drive to Scottsdale · Casa Grande Ruins · Luminarias",
       status: "pending",
       summary: "Check out of Tucson, stop at Casa Grande Ruins, evening luminarias in Phoenix.",
       items: [
@@ -98,7 +100,7 @@ window.TRIP = {
       ]
     },
     {
-      id: "day-6", date: "Tue Dec 29", title: "Early flight home",
+      id: "day-6", icon: "🏠", date: "Tue Dec 29", title: "Early flight home",
       status: "pending",
       summary: "Leave the hotel by about 5:15 am. Return the car, then fly.",
       items: [
@@ -138,7 +140,7 @@ window.TRIP = {
     ],
     options: [
       {
-        id: "home-a", pkgHome: 1155, name: "A · Downtown Historic 4BR, Barrio Viejo", tag: "Best price",
+        id: "home-a", img: "img/home-a.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: true, text: "Available for your dates (confirmed Sep 27)" }, pkgHome: 1155, name: "A · Downtown Historic 4BR, Barrio Viejo", tag: "Best price",
         price: "<b>$1,155 total</b> for 4 nights (incl. fees). Rating 9.8 (6 reviews).",
         beds: "4 bedrooms, sleeps 8: two queen rooms + two rooms with 2 extra-long twins each (everyone gets a bed). 2 full + 2 half baths.",
         cancel: "Full refund only if cancelled <b>before Oct 25, 2026</b>.",
@@ -148,7 +150,7 @@ window.TRIP = {
         link: "https://www.vrbo.com/4419370?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-b", pkgHome: 1502, name: "B · Experience Tucson, near University of Arizona (Jefferson Park)", tag: "Top rated",
+        id: "home-b", img: "img/home-b.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: false, text: "Availability being confirmed" }, pkgHome: 1502, name: "B · Experience Tucson, near University of Arizona (Jefferson Park)", tag: "Top rated",
         price: "<b>$1,502 total</b> for 4 nights (incl. fees). Rating 10 (38 reviews).",
         beds: "Sleeps exactly 6: king (en suite bath), queen, and two twins. 2 baths.",
         cancel: "Full refund <b>before Nov 24, 2026</b>; partial refund before Dec 10.",
@@ -158,7 +160,7 @@ window.TRIP = {
         link: "https://www.vrbo.com/2604636?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-c", pkgHome: 2023, name: "C · Tucson Game House with Hot Tub, Fire Pit & Games (Catalina Foothills)", tag: "Hot tub + games",
+        id: "home-c", img: "img/home-c.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: true, text: "Available for your dates (confirmed Sep 27)" }, pkgHome: 2023, name: "C · Tucson Game House with Hot Tub, Fire Pit & Games (Catalina Foothills)", tag: "Hot tub + games",
         price: "<b>$2,023 total</b> ($506/night, all fees included). Rating 10 (19 reviews).",
         beds: "Sleeps 8: bedroom 1 king, bedroom 2 queen, bedroom 3 three twins, plus a fold-out twin ottoman and two 9-foot sofas. 2 baths.",
         cancel: "Full refund <b>before Dec 10, 2026</b>; 50% refund before Dec 17 (minus service fee); no refund after.",
@@ -168,7 +170,7 @@ window.TRIP = {
         link: "https://www.vrbo.com/3085995?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-d", pkgHome: 2542, name: "D · The Saguaro Sanctuary (east side, near Saguaro East & Sabino)", tag: "Splurge · pool",
+        id: "home-d", img: "img/home-d.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: false, text: "Availability being confirmed" }, pkgHome: 2542, name: "D · The Saguaro Sanctuary (east side, near Saguaro East & Sabino)", tag: "Splurge · pool",
         price: "$1,906 (incl. fees) + December heated pool $636 ($249 first day + $129 × 3 days) = <b>≈ $2,542 total</b>. Rating 9.4 (49 reviews).",
         beds: "5 bedrooms: five kings + two twins, so everyone can have a room. 3 baths.",
         cancel: "<b>NON-REFUNDABLE.</b>",
@@ -206,6 +208,14 @@ window.TRIP = {
     { date: "Dec 23", title: "Check in for flight (24 hrs ahead) and pay bag fees" },
     { date: "Day of", title: "Mount Lemmon road check", text: "Call 520-351-3351.", link: "tel:5203513351" },
     { date: "Dec 29", title: "Leave Scottsdale by ~5:15 am", text: "7:15 am flight, home 12:30 pm." }
+  ],
+
+  photoCredits: [
+    ["Hero: Saguaro National Park East (2024)", "dconvertini", "CC BY-SA 2.0", "https://commons.wikimedia.org/wiki/File:Saguaro_National_Park_East,_Arizona,_USA_2024_14.jpg"],
+    ["Saguaro sunset", "National Park Service", "Public domain", "https://commons.wikimedia.org/wiki/File:Saguaro_National_Park_Saguaro_Sunset_9924.jpg"],
+    ["Sabino Canyon", "Lee Adlaf", "CC BY 2.0", "https://commons.wikimedia.org/wiki/File:Sabino_Canyon,_2002.jpg"],
+    ["Casa Grande Ruins", "Goldmoney10", "CC0", "https://commons.wikimedia.org/wiki/File:Casa_Grand_Ruins_2.jpg"],
+    ["Home photos A–D", "the hosts' VRBO listings (linked on each card)", "shown for reference", ""]
   ],
 
   sources: [
