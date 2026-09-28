@@ -36,8 +36,9 @@ window.TRIP = {
       { item: "Tucson home, 4 nights (VRBO, pick one)", amount: "$1,155–$2,542", note: "Homes A–D incl. fees (D includes $636 pool heat); no tax line shown. Checked Sep 27, 2026", status: "pending" },
       { item: "Scottsdale, Dec 28", amount: "≈ $142–$249", note: "Google Hotels, Dec 28 with 6 travelers; room count unverified", status: "pending" },
       { item: "Attractions", amount: "≈ $460–$752", note: "Lean plan vs. everything except Taliesin West", status: "pending" },
-      { item: "7–8 seat vehicle (PHX, Dec 24–29)", amount: "Not priced yet", note: "", status: "pending" },
-      { item: "Food, lodging taxes, fees", amount: "Not estimated yet", note: "", status: "pending" }
+      { item: "Minivan, 7 seats (PHX, Dec 24–29)", amount: "$619", note: "KAYAK live total, National Chrysler Pacifica or similar, free cancellation (checked Sep 27). Other majors $745–$818; gas ≈ $60 (estimate)", status: "pending" },
+      { item: "Food & other (estimate)", amount: "≈ $1,200", note: "$120/day groceries × 6 days + ~4 meals out", status: "pending" },
+      { item: "PACKAGE TOTALS (see Where we stay)", amount: "$6,126–$7,513", note: "A $6,126 · B $6,473 · C $6,994 · D $7,513. All under $8,000; optional extras (tram, caves, luminarias) not included" }
     ]
   },
 
@@ -48,7 +49,7 @@ window.TRIP = {
       summary: "Early flight, then an easy afternoon. Some places close early on Christmas Eve.",
       items: [
         { time: "6:15 → 8:20 am", title: "Southwest nonstop IND → PHX", text: "$185 per person on Google Flights. Not booked.", status: "pending", map: "Phoenix Sky Harbor International Airport" },
-        { time: "Morning", title: "Pick up 7–8 seat vehicle, drive about 2 hrs to Tucson", text: "Rental not priced or booked yet.", status: "pending" },
+        { time: "Morning", title: "Pick up 7–8 seat vehicle, drive about 2 hrs to Tucson", text: "Minivan ≈ <b>$619</b> for 5 days (National, Chrysler Pacifica or similar, via KAYAK Sep 27). Not booked. Rental Car Center is a Sky Train ride from the terminal.", status: "pending" },
         { time: "Optional", title: "Pima Air & Space Museum (Christmas Eve 9–3)", text: "$22.50 ages 13+, $16 ages 5–12 → <b>$128.50</b>. Closed Christmas Day.", map: "Pima Air & Space Museum, Tucson AZ", src: "https://pimaair.org/" },
         { time: "Afternoon", title: "Check in, pool, rest", text: "Home not chosen yet: vote on A–D in Where we stay.", status: "pending" }
       ],
@@ -125,9 +126,19 @@ window.TRIP = {
 
   lodging: {
     note: "Four whole-home VRBO options, Dec 24–28 (4 nights), 6 guests. Totals <b>include VRBO fees; no tax line was shown</b>. <b>Prices checked Sep 27, 2026 (~9:40 pm ET).</b> Nothing booked. Vote for your favorite. (Hotel fallbacks from earlier research: Embassy Suites Tucson East ≈ $936 for 2 suites × 4 nights; Westin La Paloma ≈ $2,670–$2,840.)",
+    pkgNote: "Package = everything except optional extras. Checked Sep 27, 2026. Vehicle is a live KAYAK quote (not booked); gas and food are estimates.",
+    pkgCommon: [
+      ["Flights, 6 people (Southwest nonstops)", 2394, "$185 out + $214 back per person"],
+      ["Southwest checked bags", 270, "Assumes 3 checked bags each way ($270). A Southwest Rapid Rewards card = free first bag for cardholder + up to 8 companions"],
+      ["Scottsdale night, Dec 28 (Embassy Suites)", 228, "Planning figure; 1 suite vs 2 rooms for 6 unverified; before tax"],
+      ["Minivan, PHX Dec 24–29 (National, Chrysler Pacifica or similar)", 619, "KAYAK total for 5 days, free cancellation, checked Sep 27 ~9:45 pm ET. Not booked"],
+      ["Gas, ~350 miles (estimate)", 60, "≈ 16 gal at ~22 mpg × ~$3.60/gal"],
+      ["Saguaro NP ($25/car) + Desert Museum (~$175)", 200, ""],
+      ["Food & other (estimate)", 1200, "≈ $120/day groceries × 6 days ($720) + ~4 meals out at ~$120 ($480)"]
+    ],
     options: [
       {
-        id: "home-a", name: "A · Downtown Historic 4BR, Barrio Viejo", tag: "Best price",
+        id: "home-a", pkgHome: 1155, name: "A · Downtown Historic 4BR, Barrio Viejo", tag: "Best price",
         price: "<b>$1,155 total</b> for 4 nights (incl. fees). Rating 9.8 (6 reviews).",
         beds: "4 bedrooms, sleeps 8: two queen rooms + two rooms with 2 extra-long twins each (everyone gets a bed). 2 full + 2 half baths.",
         cancel: "Full refund only if cancelled <b>before Oct 25, 2026</b>.",
@@ -137,7 +148,7 @@ window.TRIP = {
         link: "https://www.vrbo.com/4419370?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-b", name: "B · Experience Tucson, near University of Arizona (Jefferson Park)", tag: "Top rated",
+        id: "home-b", pkgHome: 1502, name: "B · Experience Tucson, near University of Arizona (Jefferson Park)", tag: "Top rated",
         price: "<b>$1,502 total</b> for 4 nights (incl. fees). Rating 10 (38 reviews).",
         beds: "Sleeps exactly 6: king (en suite bath), queen, and two twins. 2 baths.",
         cancel: "Full refund <b>before Nov 24, 2026</b>; partial refund before Dec 10.",
@@ -147,7 +158,7 @@ window.TRIP = {
         link: "https://www.vrbo.com/2604636?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-c", name: "C · Tucson Game House with Hot Tub, Fire Pit & Games (Catalina Foothills)", tag: "Hot tub + games",
+        id: "home-c", pkgHome: 2023, name: "C · Tucson Game House with Hot Tub, Fire Pit & Games (Catalina Foothills)", tag: "Hot tub + games",
         price: "<b>$2,023 total</b> ($506/night, all fees included). Rating 10 (19 reviews).",
         beds: "Sleeps 8: bedroom 1 king, bedroom 2 queen, bedroom 3 three twins, plus a fold-out twin ottoman and two 9-foot sofas. 2 baths.",
         cancel: "Full refund <b>before Dec 10, 2026</b>; 50% refund before Dec 17 (minus service fee); no refund after.",
@@ -157,7 +168,7 @@ window.TRIP = {
         link: "https://www.vrbo.com/3085995?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-d", name: "D · The Saguaro Sanctuary (east side, near Saguaro East & Sabino)", tag: "Splurge · pool",
+        id: "home-d", pkgHome: 2542, name: "D · The Saguaro Sanctuary (east side, near Saguaro East & Sabino)", tag: "Splurge · pool",
         price: "$1,906 (incl. fees) + December heated pool $636 ($249 first day + $129 × 3 days) = <b>≈ $2,542 total</b>. Rating 9.4 (49 reviews).",
         beds: "5 bedrooms: five kings + two twins, so everyone can have a room. 3 baths.",
         cancel: "<b>NON-REFUNDABLE.</b>",
@@ -188,7 +199,7 @@ window.TRIP = {
     { date: "Now", title: "Book Southwest flights (Dec 24 out, Dec 29 back)", text: "$185 + $214 per person seen Sep 27; prices change.", status: "pending" },
     { date: "Now", title: "Pick Tucson home (Dec 24–28)", text: "Vote A–D. Home A free cancel ends Oct 25; Home B full refund ends Nov 24; Home C full refund ends Dec 10; Home D is non-refundable.", status: "pending" },
     { date: "Now", title: "Pick Scottsdale hotel (Dec 28)", status: "pending" },
-    { date: "Now", title: "Price and book a 7–8 seat vehicle at PHX (Dec 24–29)", status: "pending" },
+    { date: "Now", title: "Book a 7-seat minivan at PHX (Dec 24–29)", text: "$617–$818 on KAYAK Sep 27 (free cancellation on most). December is peak van demand.", status: "pending" },
     { date: "ASAP", title: "Kartchner Caverns reservation (if Dec 26 Option A)", text: "Online or 877-MY-PARKS.", link: "https://azstateparks.com/kartchner" },
     { date: "Fri Oct 16", title: "Luminarias tickets go on sale", text: "Online only, for Mon Dec 28.", link: "https://dbg.org/events/las-noches-de-las-luminarias/2026-12-31/" },
     { date: "Days–weeks before", title: "Book Sabino Canyon tram (Dec 27)", text: "Sells out.", link: "https://sabinocanyoncrawler.com/faqs/" },
@@ -209,6 +220,7 @@ window.TRIP = {
     ["Southwest bag fees (Optional Travel Charges)", "https://www.southwest.com/html/customer-service/travel-fees.html"],
     ["Tucson December normals (NWS)", "https://www.weather.gov/twc/TucsonMonthlyNormalExtremes"],
     ["Tucson sunrise/sunset", "https://www.timeanddate.com/sun/usa/tucson?month=12&year=2026"],
+    ["KAYAK minivans PHX Dec 24–29", "https://www.kayak.com/cars/PHX/2026-12-24-9h/2026-12-29-5h?fs=carclass=van"],
     ["Google Hotels search used", "https://www.google.com/travel/search?q=Tucson%20resort%20suites%20Dec%2024%20to%20Dec%2028%202026"]
   ]
 };

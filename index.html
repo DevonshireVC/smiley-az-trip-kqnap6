@@ -44,6 +44,7 @@ dl.ov dt{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:va
 dl.ov dd{margin:0}
 table.budget{width:100%;border-collapse:collapse;font-size:.93rem}
 table.budget td{padding:9px 4px;border-top:1px solid var(--line);vertical-align:top}
+details.pkg{margin:8px 0;background:#faf6ef;border-radius:10px;padding:8px 10px}details.pkg summary{cursor:pointer}
 table.budget td.amt{text-align:right;font-weight:700;white-space:nowrap;padding-left:8px}
 details.day{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin:10px 0;overflow:hidden}
 details.day>summary{list-style:none;cursor:pointer;padding:14px 48px 14px 14px;min-height:60px;position:relative}
@@ -189,6 +190,10 @@ const thread=(id,label)=>`<div class="thread" data-section="${id}"><h4>💬 Comm
   <form class="compose" data-section="${id}"><textarea placeholder="Add a comment…" rows="1" maxlength="1000" aria-label="Comment"></textarea><button class="btn primary" type="submit">Post</button></form></div>`;
 const voteBtn=(section,opt,label)=>`<button class="btn small votebtn" data-section="${section}" data-opt="${opt}" data-label="${esc(label)}">👍 Vote</button><div class="votes" data-votes="${section}|${opt}"></div>`;
 
+const usd=n=>'$'+Math.round(n).toLocaleString('en-US');
+const pkgTable=(L,op)=>{const tot=L.pkgCommon.reduce((a,r)=>a+r[1],op.pkgHome);return `<details class="pkg"><summary><b>Package total ${usd(tot)}</b> · ${usd(8000-tot)} under budget</summary>
+  <table class="budget"><tr><td>Tucson home, 4 nights</td><td class="amt">${usd(op.pkgHome)}</td></tr>${L.pkgCommon.map(r=>`<tr><td>${esc(r[0])}${r[2]?`<div class="muted">${esc(r[2])}</div>`:''}</td><td class="amt">${usd(r[1])}</td></tr>`).join('')}
+  <tr><td><b>Total</b></td><td class="amt">${usd(tot)}</td></tr><tr><td>Room under $8,000</td><td class="amt">${usd(8000-tot)}</td></tr></table><div class="muted">${L.pkgNote||''}</div></details>`};
 /* ================= render ================= */
 function render(){
   document.title=T.title;
@@ -202,7 +207,7 @@ function render(){
     <div><dt>Must-haves</dt><dd>${o.rule}</dd></div>
     <div><dt>Weather</dt><dd>${o.weather} <a href="${o.weatherSrc}" target="_blank" rel="noopener">NWS</a></dd></div>
    </dl></div>
-   <div class="card"><h3>Budget snapshot</h3><div class="muted">Only sourced numbers. No grand total until flights and lodging are picked.</div>
+   <div class="card"><h3>Budget snapshot</h3><div class="muted">Only sourced numbers. Package totals for each home are under Where we stay.</div>
     <table class="budget">${o.budget.map(b=>`<tr><td>${esc(b.item)} ${tag(b.status)}${b.note?`<div class="muted">${esc(b.note)}</div>`:''}</td><td class="amt">${esc(b.amount)}</td></tr>`).join('')}</table>
     ${thread('overview')}</div>`;
 
@@ -231,7 +236,7 @@ function render(){
   $('#lodging').innerHTML=`<h2>🏡 Where we stay <span class="tag pending">Pending</span></h2>
    <h3>Tucson · Dec 24–28 (4 nights), pick one</h3><div class="muted">${L.note}</div>`+
    L.options.map(op=>`<div class="card"><span class="tag soft">${esc(op.tag)}</span> ${tag(op.status)}<h3 style="margin-top:6px">${esc(op.name)}</h3>
-     <p style="margin:4px 0">💲 ${op.price}</p><p style="margin:4px 0">🛏️ ${op.beds}</p>${op.cancel?`<p style="margin:4px 0">📅 ${op.cancel}</p>`:''}${op.pkg?op.pkg:''}<p style="margin:4px 0">👍 ${op.pros}</p><p style="margin:4px 0">⚠️ ${op.cons}</p>
+     <p style="margin:4px 0">💲 ${op.price}</p><p style="margin:4px 0">🛏️ ${op.beds}</p>${op.cancel?`<p style="margin:4px 0">📅 ${op.cancel}</p>`:''}${op.pkgHome?pkgTable(L,op):''}<p style="margin:4px 0">👍 ${op.pros}</p><p style="margin:4px 0">⚠️ ${op.cons}</p>
      <div class="btnrow"><a class="btn small" href="${maps(op.map)}" target="_blank" rel="noopener">📍 Map</a><a class="btn small" href="${op.link}" target="_blank" rel="noopener">🔗 Website</a>${voteBtn('lodging',op.id,op.name)}</div></div>`).join('')+
    `<div class="card"><h3>Scottsdale · night of Dec 28 <span class="tag pending">Pending</span></h3><div class="muted">${L.scottsdale.note}</div>
      ${L.scottsdale.options.map(s=>`<div class="opt"><b>${esc(s.name)}</b><div class="muted">${esc(s.price)}</div><div class="btnrow"><a class="btn small" href="${maps(s.map)}" target="_blank" rel="noopener">📍 Map</a></div></div>`).join('')}
