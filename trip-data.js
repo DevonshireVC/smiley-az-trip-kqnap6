@@ -22,7 +22,7 @@ window.TRIP = {
   preparedBy: "Travel Agent",
   heroImg: { small: "img/hero-960.jpg", large: "img/hero-1920.jpg", alt: "Saguaro cacti at sunset in Saguaro National Park East, Tucson" },
   subtitle: "Tucson + Scottsdale · Dec 24–29, 2026",
-  checked: "Prices checked Sep 27, 2026 — they will change. Nothing is booked yet.",
+  checked: "Prices checked Sep 27–28, 2026 — they will change. Nothing is booked yet. Homes B and D availability rechecked Sep 28.",
   family: ["Aaron", "Kristin"],          // add the girls' names here to show them as one-tap name buttons
   who: "Aaron, Kristin, and our four girls (18, 16, 14, 12)",
 
@@ -35,12 +35,12 @@ window.TRIP = {
     budget: [
       { item: "Flights, 6 people (Southwest nonstops)", amount: "≈ $2,394", note: "$185 out + $214 back per person, before bag fees", status: "pending" },
       { item: "Southwest checked bags", amount: "$270–$540", note: "$45 first bag, $55 second, each way. 3–6 first bags × 2 flights", status: "pending" },
-      { item: "Tucson home, 4 nights (VRBO, pick one)", amount: "$1,155–$2,542", note: "Homes A–D incl. fees (D includes $636 pool heat); no tax line shown. Checked Sep 27, 2026", status: "pending" },
+      { item: "Tucson home, 4 nights (VRBO, pick one)", amount: "$1,155–$2,023", note: "Homes A–D incl. fees; D is $1,906 on the VRBO card (FREE* heated pool claim — confirm with host). Checked Sep 28, 2026", status: "pending" },
       { item: "Scottsdale, Dec 28", amount: "≈ $142–$249", note: "Google Hotels, Dec 28 with 6 travelers; room count unverified", status: "pending" },
       { item: "Attractions", amount: "≈ $460–$752", note: "Lean plan vs. everything except Taliesin West", status: "pending" },
       { item: "Minivan, 7 seats (PHX, Dec 24–29)", amount: "$619", note: "KAYAK live total, National Chrysler Pacifica or similar, free cancellation (checked Sep 27). Other majors $745–$818; gas ≈ $60 (estimate)", status: "pending" },
       { item: "Food & other (estimate)", amount: "≈ $1,200", note: "$120/day groceries × 6 days + ~4 meals out", status: "pending" },
-      { item: "PACKAGE TOTALS (see Where we stay)", amount: "$6,126–$7,513", note: "A $6,126 · B $6,473 · C $6,994 · D $7,513. All under $8,000; optional extras (tram, caves, luminarias) not included" }
+      { item: "PACKAGE TOTALS (see Where we stay)", amount: "$6,126–$6,994", note: "A $6,126 · B $6,473 · C $6,994 · D $6,877 (if D pool heat is truly included at $1,906). All under $8,000; optional extras (tram, caves, luminarias) not included" }
     ]
   },
 
@@ -127,7 +127,7 @@ window.TRIP = {
   },
 
   lodging: {
-    note: "Four whole-home VRBO options, Dec 24–28 (4 nights), 6 guests. Totals <b>include VRBO fees; no tax line was shown</b>. <b>Prices checked Sep 27, 2026 (~9:40 pm ET).</b> Nothing booked. Vote for your favorite. (Hotel fallbacks from earlier research: Embassy Suites Tucson East ≈ $936 for 2 suites × 4 nights; Westin La Paloma ≈ $2,670–$2,840.)",
+    note: "Four whole-home VRBO options, Dec 24–28 (4 nights), 6 guests. Totals <b>include VRBO fees; no tax line was shown</b>. <b>Prices checked Sep 27; B and D availability rechecked Sep 28, 2026 (~9:05 am ET).</b> Nothing booked. Vote for your favorite. (Hotel fallbacks from earlier research: Embassy Suites Tucson East ≈ $936 for 2 suites × 4 nights; Westin La Paloma ≈ $2,670–$2,840.)",
     pkgNote: "Package = everything except optional extras. Checked Sep 27, 2026. Vehicle is a live KAYAK quote (not booked); gas and food are estimates.",
     pkgCommon: [
       ["Flights, 6 people (Southwest nonstops)", 2394, "$185 out + $214 back per person"],
@@ -150,7 +150,7 @@ window.TRIP = {
         link: "https://www.vrbo.com/4419370?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-b", img: "img/home-b.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: false, text: "Availability being confirmed" }, pkgHome: 1502, name: "B · Experience Tucson, near University of Arizona (Jefferson Park)", tag: "Top rated",
+        id: "home-b", img: "img/home-b.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: true, text: "Available for your dates (confirmed Sep 28)" }, pkgHome: 1502, name: "B · Experience Tucson, near University of Arizona (Jefferson Park)", tag: "Top rated",
         price: "<b>$1,502 total</b> for 4 nights (incl. fees). Rating 10 (38 reviews).",
         beds: "Sleeps exactly 6: king (en suite bath), queen, and two twins. 2 baths.",
         cancel: "Full refund <b>before Nov 24, 2026</b>; partial refund before Dec 10.",
@@ -170,12 +170,12 @@ window.TRIP = {
         link: "https://www.vrbo.com/3085995?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "home-d", img: "img/home-d.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: false, text: "Availability being confirmed" }, pkgHome: 2542, name: "D · The Saguaro Sanctuary (east side, near Saguaro East & Sabino)", tag: "Splurge · pool",
-        price: "$1,906 (incl. fees) + December heated pool $636 ($249 first day + $129 × 3 days) = <b>≈ $2,542 total</b>. Rating 9.4 (49 reviews).",
+        id: "home-d", img: "img/home-d.jpg", imgNote: "Listing photo (VRBO)", avail: { ok: true, text: "Available for your dates (confirmed Sep 28)" }, pkgHome: 1906, name: "D · The Saguaro Sanctuary (east side, near Saguaro East & Sabino)", tag: "Splurge · pool",
+        price: "<b>$1,906 total</b> for 4 nights (incl. fees). Listing title says FREE* heated pool; confirm December heat with host before booking (was a $636 add-on on Sep 27). Rating 9.4 (49 reviews).",
         beds: "5 bedrooms: five kings + two twins, so everyone can have a room. 3 baths.",
         cancel: "<b>NON-REFUNDABLE.</b>",
         pros: "Private heated pool, pool table, fire pit, fireplace, mountain views. Closest to Saguaro East and Sabino Canyon (Dec 27).",
-        cons: "Most expensive. No refund if plans change. Farther from Saguaro West / Desert Museum (Dec 25).",
+        cons: "Still among the pricier homes. No refund if plans change. Farther from Saguaro West / Desert Museum (Dec 25). Confirm FREE* December pool heat before relying on it.",
         map: "Saguaro National Park East, Tucson AZ",
         link: "https://www.vrbo.com/4411090?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       }
