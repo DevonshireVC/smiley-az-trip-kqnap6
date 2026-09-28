@@ -33,7 +33,7 @@ window.TRIP = {
     budget: [
       { item: "Flights, 6 people (Southwest nonstops)", amount: "≈ $2,394", note: "$185 out + $214 back per person, before bag fees", status: "pending" },
       { item: "Southwest checked bags", amount: "$270–$540", note: "$45 first bag, $55 second, each way. 3–6 first bags × 2 flights", status: "pending" },
-      { item: "Tucson lodging, 4 nights", amount: "≈ $936 to $2,840", note: "Embassy Suites (budget) to Westin (resort), before taxes. Vacation rentals: not priced", status: "pending" },
+      { item: "Tucson home, 4 nights (VRBO, pick one)", amount: "$1,155–$2,542", note: "Homes A–D incl. fees (D includes $636 pool heat); no tax line shown. Checked Sep 27, 2026", status: "pending" },
       { item: "Scottsdale, Dec 28", amount: "≈ $142–$249", note: "Google Hotels, Dec 28 with 6 travelers; room count unverified", status: "pending" },
       { item: "Attractions", amount: "≈ $460–$752", note: "Lean plan vs. everything except Taliesin West", status: "pending" },
       { item: "7–8 seat vehicle (PHX, Dec 24–29)", amount: "Not priced yet", note: "", status: "pending" },
@@ -50,7 +50,7 @@ window.TRIP = {
         { time: "6:15 → 8:20 am", title: "Southwest nonstop IND → PHX", text: "$185 per person on Google Flights. Not booked.", status: "pending", map: "Phoenix Sky Harbor International Airport" },
         { time: "Morning", title: "Pick up 7–8 seat vehicle, drive about 2 hrs to Tucson", text: "Rental not priced or booked yet.", status: "pending" },
         { time: "Optional", title: "Pima Air & Space Museum (Christmas Eve 9–3)", text: "$22.50 ages 13+, $16 ages 5–12 → <b>$128.50</b>. Closed Christmas Day.", map: "Pima Air & Space Museum, Tucson AZ", src: "https://pimaair.org/" },
-        { time: "Afternoon", title: "Check in, pool, rest", text: "Lodging not chosen yet. See Where we stay.", status: "pending" }
+        { time: "Afternoon", title: "Check in, pool, rest", text: "Home not chosen yet: vote on A–D in Where we stay.", status: "pending" }
       ],
       closed: "Christmas Eve short hours: Kartchner Caverns 8–2, Pima Air & Space 9–3. Luminarias is NOT running Dec 24."
     },
@@ -124,52 +124,54 @@ window.TRIP = {
   },
 
   lodging: {
-    note: "Google Hotels, Dec 24–28. Hotel rates are lead nightly rates before taxes/fees. Cancellation terms not shown. <b>Catalina Breeze (from the earlier list) is unavailable Dec 24–27</b>, so it was dropped.",
+    note: "Four whole-home VRBO options, Dec 24–28 (4 nights), 6 guests. Totals <b>include VRBO fees; no tax line was shown</b>. <b>Prices checked Sep 27, 2026 (~9:40 pm ET).</b> Nothing booked. Vote for your favorite. (Hotel fallbacks from earlier research: Embassy Suites Tucson East ≈ $936 for 2 suites × 4 nights; Westin La Paloma ≈ $2,670–$2,840.)",
     options: [
       {
-        id: "lodge-embassy", name: "Embassy Suites Tucson East", tag: "Budget",
-        price: "$117/night per suite with 4 guests set (Hotels.com via Google) × 2 suites × 4 nights ≈ <b>$936</b>. ($108 with 2 guests; $192/night shown with 6 guests, room setup unverified.)",
-        beds: "Two-room suites: 2 queens + sofa bed each. Book 2 suites → 4 queens + 2 sofa beds.",
-        pros: "Free made-to-order breakfast and evening reception. Outdoor pool and hot tub. East side, handy for Saguaro East and Sabino.",
-        cons: "Parking costs extra. Pool heating not confirmed.",
-        map: "Embassy Suites by Hilton Tucson East",
-        link: "https://www.hilton.com/en/hotels/tuseees-embassy-suites-tucson-east/"
+        id: "home-a", name: "A · Downtown Historic 4BR, Barrio Viejo", tag: "Best price",
+        price: "<b>$1,155 total</b> for 4 nights (incl. fees). Rating 9.8 (6 reviews).",
+        beds: "4 bedrooms, sleeps 8: two queen rooms + two rooms with 2 extra-long twins each (everyone gets a bed). 2 full + 2 half baths.",
+        cancel: "Full refund only if cancelled <b>before Oct 25, 2026</b>.",
+        pros: "Cheapest by far. Walk to downtown restaurants and the streetcar. Parking for 3 cars. Lots of bathrooms.",
+        cons: "Only 6 reviews. No pool/hot tub listed. City setting, not desert views. Short free-cancel window.",
+        map: "Barrio Viejo, Tucson AZ",
+        link: "https://www.vrbo.com/4419370?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "lodge-westin", name: "Westin La Paloma Resort & Spa", tag: "Resort",
-        price: "$294/night (Google Hotels, Dec 24–28, 2 guests; Expedia $299) × 2 rooms × 4 nights = $2,352, plus resort fee ($232–$403) and parking (~$85) ≈ <b>$2,670–$2,840</b>. 4-guest rate not shown.",
-        beds: "2 connecting rooms (on request), 2 queens each.",
-        pros: "3 outdoor pools, waterslide, hot tub. Catalina Foothills, about 15 min from Sabino Canyon.",
-        cons: "Resort fee conflicts ($29/day vs $50.42/night; confirm). Self-parking $21.29/night. Breakfast about $35 per person. Pool heating in December not confirmed.",
-        map: "The Westin La Paloma Resort and Spa, 3800 E Sunrise Dr, Tucson AZ",
-        link: "https://www.marriott.com/en-us/hotels/tuswi-the-westin-la-paloma-resort-and-spa/overview/"
+        id: "home-b", name: "B · Experience Tucson, near University of Arizona (Jefferson Park)", tag: "Top rated",
+        price: "<b>$1,502 total</b> for 4 nights (incl. fees). Rating 10 (38 reviews).",
+        beds: "Sleeps exactly 6: king (en suite bath), queen, and two twins. 2 baths.",
+        cancel: "Full refund <b>before Nov 24, 2026</b>; partial refund before Dec 10.",
+        pros: "Perfect 10 from 38 reviews. Most flexible cancellation. Garage. Central location.",
+        cons: "Two girls share a room with twins and two share a queen (tight at exactly 6). No pool/hot tub listed.",
+        map: "Jefferson Park, Tucson AZ",
+        link: "https://www.vrbo.com/2604636?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "lodge-dreamin", name: "Catalina Dreamin' Luxe Foothills Oasis (VRBO 4744125)", tag: "Whole house",
-        price: "<b>Price and availability not shown</b> (VRBO won't quote without interaction). Pool heat is an extra <b>$150/night</b> (48 hrs notice, 2-night minimum). Similar 4-bedroom Tucson rentals averaged $323–$369/night on other dates.",
-        beds: "4 bedrooms, 3+ baths, sleeps 8. 3 kings listed; 4th bedroom bed type not stated.",
-        pros: "Infinity pool and spa, arcade games, fireplace. Gated Foothills community. About 30 min to Sabino.",
-        cons: "About 35 min to Saguaro West. Price, fees and cancellation unknown.",
-        status: "pending",
+        id: "home-c", name: "C · Tucson Game House with Hot Tub, Fire Pit & Games (Catalina Foothills)", tag: "Hot tub + games",
+        price: "<b>$2,023 total</b> ($506/night, all fees included). Rating 10 (19 reviews).",
+        beds: "Sleeps 8: bedroom 1 king, bedroom 2 queen, bedroom 3 three twins, plus a fold-out twin ottoman and two 9-foot sofas. 2 baths.",
+        cancel: "Full refund <b>before Dec 10, 2026</b>; 50% refund before Dec 17 (minus service fee); no refund after.",
+        pros: "Private hot tub for 4 (nights ~40°F), fire pit, cornhole, grill, fenced yard. Game room: air hockey, foosball, classic NES console. Catalina mountain views, 2-car garage, big stocked kitchen, washer/dryer, electric fireplace. Across from a park with a weekend farmers market; near Tucson Mall, ~5 mi to downtown. Flexible cancellation.",
+        cons: "No pool. 3 bedrooms, so the girls share (one room has 3 twins). Only 2 baths. ~27 min to Saguaro National Park. About $870 more than A.",
         map: "Catalina Foothills, Tucson AZ",
-        link: "https://www.vrbo.com/4744125"
+        link: "https://www.vrbo.com/3085995?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       },
       {
-        id: "lodge-suenos", name: "Saguaro Sueños, Catalina Foothills (VRBO 3101180)", tag: "Whole house",
-        price: "<b>Price and availability not shown.</b> Pool heating is a paid upgrade (price not shown).",
-        beds: "4 bedrooms, 2.5 baths, sleeps 8: 3 kings + 1 room with 2 twins.",
-        pros: "Pool, spa, outdoor kitchen, fire pit, fireplace. A December 2023 review praises it for holidays with kids.",
-        cons: "Price, fees and cancellation unknown.",
-        status: "pending",
-        map: "Orange Grove Rd and N 1st Ave, Tucson AZ",
-        link: "https://www.vacayintucson.com/saguaro-suenos"
+        id: "home-d", name: "D · The Saguaro Sanctuary (east side, near Saguaro East & Sabino)", tag: "Splurge · pool",
+        price: "$1,906 (incl. fees) + December heated pool $636 ($249 first day + $129 × 3 days) = <b>≈ $2,542 total</b>. Rating 9.4 (49 reviews).",
+        beds: "5 bedrooms: five kings + two twins, so everyone can have a room. 3 baths.",
+        cancel: "<b>NON-REFUNDABLE.</b>",
+        pros: "Private heated pool, pool table, fire pit, fireplace, mountain views. Closest to Saguaro East and Sabino Canyon (Dec 27).",
+        cons: "Most expensive. No refund if plans change. Farther from Saguaro West / Desert Museum (Dec 25).",
+        map: "Saguaro National Park East, Tucson AZ",
+        link: "https://www.vrbo.com/4411090?chkin=2026-12-24&chkout=2026-12-28&adults=6"
       }
     ],
     scottsdale: {
       note: "Night of <b>Dec 28</b>. Google Hotels with Dec 28–29 and 6 travelers set (rate shown per night; whether that's 1 or 2 rooms is unverified). 2-traveler rates in brackets.",
       options: [
         { name: "Home2 Suites Scottsdale Salt River", price: "$142 ($96 for 2). Free breakfast, pool, hot tub.", map: "Home2 Suites by Hilton Scottsdale Salt River" },
-        { name: "Embassy Suites Scottsdale Resort", price: "$228 ($174 for 2). Two-room suites, free breakfast, free parking.", map: "Embassy Suites by Hilton Scottsdale Resort" },
+        { name: "Embassy Suites Scottsdale Resort", price: "$228 ($174 for 2). Two-room suites, free breakfast, free parking. Planning figure used in the totals.", map: "Embassy Suites by Hilton Scottsdale Resort" },
         { name: "Sonesta Suites Scottsdale Gainey Ranch", price: "$249 ($148 for 2).", map: "Sonesta Suites Scottsdale Gainey Ranch" }
       ]
     }
@@ -184,7 +186,7 @@ window.TRIP = {
 
   keyDates: [
     { date: "Now", title: "Book Southwest flights (Dec 24 out, Dec 29 back)", text: "$185 + $214 per person seen Sep 27; prices change.", status: "pending" },
-    { date: "Now", title: "Pick Tucson lodging (Dec 24–28)", text: "Confirm 6 people fit, pool heating, total with taxes/fees, cancellation. Vacation rentals: request a quote.", status: "pending" },
+    { date: "Now", title: "Pick Tucson home (Dec 24–28)", text: "Vote A–D. Home A free cancel ends Oct 25; Home B full refund ends Nov 24; Home C full refund ends Dec 10; Home D is non-refundable.", status: "pending" },
     { date: "Now", title: "Pick Scottsdale hotel (Dec 28)", status: "pending" },
     { date: "Now", title: "Price and book a 7–8 seat vehicle at PHX (Dec 24–29)", status: "pending" },
     { date: "ASAP", title: "Kartchner Caverns reservation (if Dec 26 Option A)", text: "Online or 877-MY-PARKS.", link: "https://azstateparks.com/kartchner" },

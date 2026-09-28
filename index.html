@@ -229,11 +229,11 @@ function render(){
 
   const L=T.lodging;
   $('#lodging').innerHTML=`<h2>🏡 Where we stay <span class="tag pending">Pending</span></h2>
-   <h3>Tucson · Dec 25–29 (4 nights), pick one</h3><div class="muted">${L.note}</div>`+
+   <h3>Tucson · Dec 24–28 (4 nights), pick one</h3><div class="muted">${L.note}</div>`+
    L.options.map(op=>`<div class="card"><span class="tag soft">${esc(op.tag)}</span> ${tag(op.status)}<h3 style="margin-top:6px">${esc(op.name)}</h3>
-     <p style="margin:4px 0">💲 ${op.price}</p><p style="margin:4px 0">🛏️ ${op.beds}</p><p style="margin:4px 0">👍 ${op.pros}</p><p style="margin:4px 0">⚠️ ${op.cons}</p>
+     <p style="margin:4px 0">💲 ${op.price}</p><p style="margin:4px 0">🛏️ ${op.beds}</p>${op.cancel?`<p style="margin:4px 0">📅 ${op.cancel}</p>`:''}${op.pkg?op.pkg:''}<p style="margin:4px 0">👍 ${op.pros}</p><p style="margin:4px 0">⚠️ ${op.cons}</p>
      <div class="btnrow"><a class="btn small" href="${maps(op.map)}" target="_blank" rel="noopener">📍 Map</a><a class="btn small" href="${op.link}" target="_blank" rel="noopener">🔗 Website</a>${voteBtn('lodging',op.id,op.name)}</div></div>`).join('')+
-   `<div class="card"><h3>Scottsdale · night of Dec 29 <span class="tag pending">Pending</span></h3><div class="muted">${L.scottsdale.note}</div>
+   `<div class="card"><h3>Scottsdale · night of Dec 28 <span class="tag pending">Pending</span></h3><div class="muted">${L.scottsdale.note}</div>
      ${L.scottsdale.options.map(s=>`<div class="opt"><b>${esc(s.name)}</b><div class="muted">${esc(s.price)}</div><div class="btnrow"><a class="btn small" href="${maps(s.map)}" target="_blank" rel="noopener">📍 Map</a></div></div>`).join('')}
      ${thread('lodging','where we stay')}</div>`;
 
